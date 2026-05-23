@@ -1,0 +1,39 @@
+prefer-no-csd
+screenshot-path "~/Imagens/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+
+    GDK_BACKEND "wayland,x11,*"
+
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+
+    MOZ_ENABLE_WAYLAND "1"
+    _JAVA_AWT_WM_NONREPARENTING "1"
+    SDL_VIDEODRIVER "wayland,x11"
+
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+    DESKTOP_SESSION "niri"
+
+    XCURSOR_THEME "capitaine-cursors"
+    XCURSOR_SIZE "24"
+}
+
+cursor {
+    xcursor-theme "capitaine-cursors"
+    xcursor-size 24
+}
+
+debug {
+    // Allows notification actions and window activation from Noctalia.
+    honor-xdg-activation-with-invalid-serial
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
