@@ -8,24 +8,7 @@
             proportion 0.33333
             proportion 0.5
             proportion 0.66667
+        }
+
+        struts {}
     }
-
-        struts 
-    focus-ring {
-        width 1
-
-        inactive-color "#77767b"
-
-        active-color "#ffbe6f"
-    }
-    border {
-        active-color "#8ff0a4"
-
-        inactive-color "#f9f06b"
-
-        width 1
-    }
-    shadow {
-        on
-    }
-}

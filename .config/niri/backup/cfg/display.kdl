@@ -5,10 +5,7 @@
 
 output "eDP-1" {
     mode "1920x1080@144.003" // Set resolution and refresh rate
-    scale 1.0 // No scaling (use 2 for HiDPI)
-    position x=2560 y=0
-
-    off
+    scale 1.25 // No scaling (use 2 for HiDPI)
     variable-refresh-rate // on-demand=true
 }
 

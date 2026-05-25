@@ -23,3 +23,9 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 fi
 
 export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-/tmp/ssh-agent-$USER.sock}"
+
+# opencode
+export PATH=/home/g/.opencode/bin:$PATH
+
+# Pi
+export PATH="/home/g/.local/share/mise/installs/node/26.2.0/bin:$PATH"
