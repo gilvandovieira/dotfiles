@@ -7,7 +7,8 @@ environment {
     GDK_BACKEND "wayland,x11,*"
 
     QT_QPA_PLATFORM "wayland;xcb"
-    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME "qt5ct:qt6ct"
+    QT_STYLE_OVERRIDE "kvantum"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
     QT_AUTO_SCREEN_SCALE_FACTOR "1"
 
@@ -20,12 +21,17 @@ environment {
     XDG_SESSION_TYPE "wayland"
     DESKTOP_SESSION "niri"
 
-    XCURSOR_THEME "capitaine-cursors"
-    XCURSOR_SIZE "24"
+    // XCURSOR_THEME "WhiteSur-cursors"
+    // XCURSOR_SIZE "24"
 }
 
 cursor {
-    xcursor-theme "catppuccin-mocha-dark-cursors"
+    // find /usr/share/icons ~/.icons ~/.local/share/icons \
+    // -maxdepth 2 \
+    // -type d \
+    // \( -name "cursors" -o -path "*/cursors" \) \
+    // 2>/dev/null | sed 's#/cursors##' | xargs -n1 basename | sort -u
+    xcursor-theme "WhiteSur-cursors"
     xcursor-size 36
 }
 

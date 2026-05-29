@@ -1,4 +1,12 @@
 binds {
+    // Mod+W                               { toggle-column-tabbed-display; }
+
+    // ─── Screenshots ───
+    
+    
+ // Also quits Niri
+    
+    
 
     // ────────────── Keybindings ──────────────
     // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
@@ -119,12 +127,6 @@ binds {
     // ─── Modes ───
     Mod+T                               { toggle-window-floating; }
     Mod+F                               { maximize-window-to-edges; }
-    // Mod+W                               { toggle-column-tabbed-display; }
-
-    // ─── Screenshots ───
-    Alt+Shift+S                        { screenshot; }
-    Alt+Shift+A                        { screenshot-screen; }
-    Alt+Shift+D                        { screenshot-window; }
 
     // ─── Emergency Escape Key ───
     // Use this when a fullscreen app blocks your keybinds.
@@ -133,10 +135,11 @@ binds {
 
     // ─── Exit / Power ───
     CTRL+ALT+Delete                     { quit; }
- // Also quits Niri
-    Mod+Shift+P                         { power-off-monitors; }
  // Turn off screens (useful for OLED or privacy)
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Shift+G { move-window-to-monitor "HDMI-A-1"; }
+    Mod+F1 { spawn "nirimod"; }
+    Mod+Shift+D { spawn-sh "mkdir -p ~/Pictures/Screenshots && grim -g \"$(slurp)\" -t ppm - | satty --filename - --fullscreen --copy-command wl-copy --output-filename \"$HOME/Pictures/Screenshots/screenshot-$(date '+%Y%m%d-%H%M%S').png\""; }
+    Mod+Shift+S { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }
 }

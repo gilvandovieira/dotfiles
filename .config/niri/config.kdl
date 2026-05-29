@@ -1,8 +1,20 @@
-include "./cfg/animation.kdl"
-include "./cfg/autostart.kdl"
-include "./cfg/keybinds.kdl"
-include "./cfg/input.kdl"
-include "./cfg/display.kdl"
-include "./cfg/layout.kdl"
-include "./cfg/rules.kdl"
-include "./cfg/misc.kdl"
+// ────────────── Output Configuration ──────────────
+// You can run `niri msg outputs` to get the correct name for your displays.
+// You will have to remove "/-" and edit it before it takes effect.
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+
+output "eDP-1" {
+    mode "1920x1080@144.003" // Set resolution and refresh rate
+    scale 1.0 // No scaling (use 2 for HiDPI)
+    position x=2560 y=0
+    variable-refresh-rate // on-demand=true
+}
+
+output "HDMI-A-1" {
+    mode "2560x1440@119.998"
+    position x=0 y=0
+    variable-refresh-rate // on-demand=true
+    focus-at-startup
+}
+
+animations { window-open { curve "cubic-bezier" 0.42 0.0 0.58 1.0; }; }
