@@ -34,6 +34,8 @@ vim.pack.add({
 
   -- Java
   "https://github.com/mfussenegger/nvim-jdtls",
+
+  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 })
 
 -- Tema
@@ -137,3 +139,6 @@ vim.lsp.enable({
   "gopls",
   "rust_analyzer",
 })
+
+
+require('render-markdown').setup({})

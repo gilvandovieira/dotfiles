@@ -10,7 +10,7 @@ source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-eval "$(/home/g/.local/bin/mise activate zsh)"
+# eval "$(/home/g/.local/bin/mise activate zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -28,7 +28,7 @@ export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-/tmp/ssh-agent-$USER.sock}"
 export PATH=/home/g/.opencode/bin:$PATH
 
 # Pi
-export PATH="/home/g/.local/share/mise/installs/node/26.2.0/bin:$PATH"
+# export PATH="/home/g/.local/share/mise/installs/node/26.2.0/bin:$PATH"
 
 eval "$(zoxide init zsh)"
 alias cd="z"
@@ -58,3 +58,11 @@ setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt inc_append_history
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$HOME/.local/bin:$PATH"
+
+fpath+=~/.zfunc
+
