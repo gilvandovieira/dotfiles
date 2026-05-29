@@ -203,3 +203,6 @@ hl.window_rule({ match = { class = "^(gw2-64.exe)$" }, fullscreen = true })
 hl.window_rule({ match = { class = "^(com.heroicgameslauncher.hgl)$" }, monitor = "HDMI-A-1" })
 hl.window_rule({ match = { class = "^(steam)$", title = "negative:^(Steam)$" }, float = true })
 hl.window_rule({ match = { class = "^(steam)$", title = "^(notificationtoasts_[0-9]+_desktop)$" }, no_initial_focus = true })
+
+-- HyprMod managed settings
+require("hyprland-gui")
