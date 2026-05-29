@@ -7,15 +7,15 @@ local browser = "helium-browser"
 local file_manager = "nautilus"
 
 local function bind(keys, dispatcher, flags)
-    hl.bind(keys, dispatcher, flags)
+  hl.bind(keys, dispatcher, flags)
 end
 
 local function exec(cmd)
-    return hl.dsp.exec_cmd(cmd)
+  return hl.dsp.exec_cmd(cmd)
 end
 
 local function layout(msg)
-    return hl.dsp.layout(msg)
+  return hl.dsp.layout(msg)
 end
 
 -- Environment
@@ -46,56 +46,56 @@ hl.monitor({ output = "eDP-1", mode = "1920x1080@144.003", position = "2560x0", 
 hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1" })
 
 hl.config({
-    input = {
-        kb_layout = "br",
-        kb_variant = "abnt2",
-        numlock_by_default = true,
-        follow_mouse = 0,
-        touchpad = {
-            natural_scroll = true,
-            tap_to_click = true,
-        },
+  input = {
+    kb_layout = "br",
+    kb_variant = "abnt2",
+    numlock_by_default = true,
+    follow_mouse = 0,
+    touchpad = {
+      natural_scroll = true,
+      tap_to_click = true,
     },
-    general = {
-        gaps_in = 8,
-        gaps_out = 8,
-        border_size = 4,
-        col = {
-            active_border = "rgb(8ff0a4)",
-            inactive_border = "rgb(303030)",
-        },
-        layout = "scrolling",
-        allow_tearing = true,
-        resize_on_border = true,
+  },
+  general = {
+    -- gaps_in = 4,
+    gaps_out = 4,
+    border_size = 4,
+    col = {
+      active_border = "rgb(8ff0a4)",
+      inactive_border = "rgb(303030)",
     },
-    decoration = {
-        rounding = 3,
-        shadow = {
-            enabled = true,
-        },
+    layout = "scrolling",
+    allow_tearing = true,
+    resize_on_border = true,
+  },
+  decoration = {
+    rounding = 3,
+    shadow = {
+      enabled = true,
     },
-    scrolling = {
-        column_width = 0.5,
-        fullscreen_on_one_column = false,
-        explicit_column_widths = "0.33333, 0.5, 0.66667, 1.0",
-        focus_fit_method = 0,
-        follow_focus = true,
-    },
-    misc = {
-        disable_hyprland_logo = true,
-        disable_splash_rendering = true,
-        focus_on_activate = true,
-        vrr = 1,
-    },
-    xwayland = {
-        force_zero_scaling = true,
-    },
+  },
+  scrolling = {
+    column_width = 0.5,
+    fullscreen_on_one_column = false,
+    explicit_column_widths = "0.33333, 0.5, 0.66667, 1.0",
+    focus_fit_method = 0,
+    follow_focus = true,
+  },
+  misc = {
+    disable_hyprland_logo = true,
+    disable_splash_rendering = true,
+    focus_on_activate = true,
+    vrr = 1,
+  },
+  xwayland = {
+    force_zero_scaling = true,
+  },
 })
 
 hl.device({
-    name = "pointer",
-    accel_profile = "flat",
-    sensitivity = 0,
+  name = "pointer",
+  accel_profile = "flat",
+  sensitivity = 0,
 })
 
 -- Animations
@@ -111,10 +111,11 @@ hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "niriEaseOutQu
 
 -- Autostart
 hl.on("hyprland.start", function()
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE DESKTOP_SESSION QT_QPA_PLATFORM QT_QPA_PLATFORMTHEME GTK_THEME XCURSOR_THEME XCURSOR_SIZE")
-    hl.exec_cmd("sh -c 'command -v xrandr >/dev/null 2>&1 && xrandr --output HDMI-A-1 --primary'")
-    hl.exec_cmd("qs -c noctalia-shell")
-    hl.exec_cmd("swayidle -w")
+  hl.exec_cmd(
+  "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE DESKTOP_SESSION QT_QPA_PLATFORM QT_QPA_PLATFORMTHEME GTK_THEME XCURSOR_THEME XCURSOR_SIZE")
+  hl.exec_cmd("sh -c 'command -v xrandr >/dev/null 2>&1 && xrandr --output HDMI-A-1 --primary'")
+  hl.exec_cmd("qs -c noctalia-shell")
+  hl.exec_cmd("swayidle -w")
 end)
 
 -- Applications / Noctalia
@@ -135,8 +136,10 @@ bind("XF86AudioNext", exec("qs -c noctalia-shell ipc call media next"), { locked
 bind("XF86AudioPrev", exec("qs -c noctalia-shell ipc call media previous"), { locked = true })
 bind("XF86AudioPlay", exec("qs -c noctalia-shell ipc call media playPause"), { locked = true })
 bind("XF86AudioPause", exec("qs -c noctalia-shell ipc call media playPause"), { locked = true })
-bind("XF86MonBrightnessUp", exec("qs -c noctalia-shell ipc call brightness increase"), { locked = true, repeating = true })
-bind("XF86MonBrightnessDown", exec("qs -c noctalia-shell ipc call brightness decrease"), { locked = true, repeating = true })
+bind("XF86MonBrightnessUp", exec("qs -c noctalia-shell ipc call brightness increase"),
+  { locked = true, repeating = true })
+bind("XF86MonBrightnessDown", exec("qs -c noctalia-shell ipc call brightness decrease"),
+  { locked = true, repeating = true })
 
 -- Focus and movement
 bind(mod .. " + Q", hl.dsp.window.close())
@@ -162,8 +165,8 @@ bind(mod .. " + SHIFT + G", hl.dsp.window.move({ monitor = "HDMI-A-1" }))
 
 -- Workspaces
 for i = 1, 9 do
-    bind(mod .. " + " .. i, hl.dsp.focus({ workspace = tostring(i) }))
-    bind(mod .. " + CTRL + " .. i, hl.dsp.window.move({ workspace = tostring(i) }))
+  bind(mod .. " + " .. i, hl.dsp.focus({ workspace = tostring(i) }))
+  bind(mod .. " + CTRL + " .. i, hl.dsp.window.move({ workspace = tostring(i) }))
 end
 bind(mod .. " + TAB", hl.dsp.focus({ workspace = "previous" }))
 bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -183,7 +186,9 @@ bind("CTRL + ALT + R", exec("hyprctl reload"))
 bind("CTRL + ALT + DELETE", hl.dsp.exit())
 
 -- Screenshots
-bind(mod .. " + SHIFT + D", exec([[mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" -t ppm - | satty --filename - --fullscreen --copy-command wl-copy --output-filename "$HOME/Pictures/Screenshots/screenshot-$(date '+%Y%m%d-%H%M%S').png"]]))
+bind(mod .. " + SHIFT + D",
+  exec(
+  [[mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" -t ppm - | satty --filename - --fullscreen --copy-command wl-copy --output-filename "$HOME/Pictures/Screenshots/screenshot-$(date '+%Y%m%d-%H%M%S').png"]]))
 bind(mod .. " + SHIFT + S", exec([[grim -g "$(slurp)" - | wl-copy]]))
 
 -- Mouse window controls
