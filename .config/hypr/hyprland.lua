@@ -32,7 +32,8 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("DESKTOP_SESSION", "Hyprland")
--- hl.env("XCURSOR_THEME", "WhiteSur-cursors")
+hl.env("XCURSOR_THEME", "WhiteSur-cursors")
+hl.env("HYPRCURSOR_THEME", "")
 hl.env("XCURSOR_SIZE", "36")
 
 -- Monitors
