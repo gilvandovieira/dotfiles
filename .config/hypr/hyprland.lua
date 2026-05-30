@@ -32,7 +32,7 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("DESKTOP_SESSION", "Hyprland")
-hl.env("XCURSOR_THEME", "WhiteSur-cursors")
+-- hl.env("XCURSOR_THEME", "WhiteSur-cursors")
 hl.env("XCURSOR_SIZE", "36")
 
 -- Monitors
@@ -111,7 +111,7 @@ hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "niriEaseOutQu
 -- Autostart
 hl.on("hyprland.start", function()
   hl.exec_cmd(
-  "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE DESKTOP_SESSION QT_QPA_PLATFORM QT_QPA_PLATFORMTHEME GTK_THEME XCURSOR_THEME XCURSOR_SIZE")
+    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE DESKTOP_SESSION QT_QPA_PLATFORM QT_QPA_PLATFORMTHEME GTK_THEME XCURSOR_THEME XCURSOR_SIZE")
   hl.exec_cmd("sh -c 'command -v xrandr >/dev/null 2>&1 && xrandr --output HDMI-A-1 --primary'")
   hl.exec_cmd("qs -c noctalia-shell")
   hl.exec_cmd("swayidle -w")
@@ -124,7 +124,7 @@ bind(mod .. " + B", exec(browser))
 bind(mod .. " + ALT + L", exec("qs -c noctalia-shell ipc call lockScreen lock"))
 bind(mod .. " + SHIFT + Q", exec("qs -c noctalia-shell ipc call sessionMenu toggle"))
 bind(mod .. " + E", exec(file_manager))
-bind(mod .. " + F1", exec("nirimod"))
+-- bind(mod .. " + F1", exec("nirimod"))
 
 -- Media and brightness
 bind("XF86AudioRaiseVolume", exec("qs -c noctalia-shell ipc call volume increase"), { locked = true, repeating = true })
@@ -187,7 +187,7 @@ bind("CTRL + ALT + DELETE", hl.dsp.exit())
 -- Screenshots
 bind(mod .. " + SHIFT + D",
   exec(
-  [[mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" -t ppm - | satty --filename - --fullscreen --copy-command wl-copy --output-filename "$HOME/Pictures/Screenshots/screenshot-$(date '+%Y%m%d-%H%M%S').png"]]))
+    [[mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" -t ppm - | satty --filename - --fullscreen --copy-command wl-copy --output-filename "$HOME/Pictures/Screenshots/screenshot-$(date '+%Y%m%d-%H%M%S').png"]]))
 bind(mod .. " + SHIFT + S", exec([[grim -g "$(slurp)" - | wl-copy]]))
 
 -- Mouse window controls
