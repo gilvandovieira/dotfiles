@@ -71,3 +71,25 @@ map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" 
 map("n", "<leader>f", function()
   vim.lsp.buf.format({ async = true })
 end, { desc = "Formatar arquivo" })
+
+-- Telescope
+local builtin = require("telescope.builtin")
+
+map("n", "<leader>ff", builtin.find_files, { desc = "Buscar arquivos" })
+map("n", "<leader>fg", builtin.live_grep, { desc = "Buscar texto" })
+map("n", "<leader>fb", builtin.buffers, { desc = "Buscar buffers" })
+map("n", "<leader>fh", builtin.help_tags, { desc = "Buscar ajuda" })
+map("n", "<leader>fr", builtin.oldfiles, { desc = "Arquivos recentes" })
+map("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Símbolos do documento" })
+map("n", "<leader>fw", builtin.lsp_dynamic_workspace_symbols, { desc = "Símbolos do workspace" })
+map("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnósticos" })
+map("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps" })
+map("n", "<leader>fc", builtin.commands, { desc = "Comandos" })
+
+-- Oil
+map("n", "-", "<cmd>Oil<cr>", { desc = "Oil: diretório atual" })
+map("n", "<leader>oo", "<cmd>Oil<cr>", { desc = "Oil: abrir" })
+map("n", "<leader>of", "<cmd>Oil --float<cr>", { desc = "Oil: abrir flutuante" })
+map("n", "<leader>oc", function()
+  require("oil").open(vim.fn.getcwd())
+end, { desc = "Oil: cwd" })

@@ -1,0 +1,5 @@
+theme = Catppuccin Mocha
+# background-opacity = 0.85
+background-opacity-cells = true
+window-width = 170
+window-height = 50
